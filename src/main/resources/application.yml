@@ -1,0 +1,31 @@
+server:
+  port: 8088
+
+logging:
+  level:
+    org.springframework: DEBUG
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher # swagger 오류 안나게
+  messages:
+    basename: messages
+  security:
+    user:
+      name: username
+      password: passw0rd
+  datasource:
+    url: jdbc:h2:mem:testdb
+  jpa:
+    show-sql: true
+    defer-datasource-initialization: true # DML 전에 DDL 구문 실행
+  h2:
+    console:
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
